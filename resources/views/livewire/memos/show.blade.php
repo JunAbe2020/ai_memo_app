@@ -9,6 +9,11 @@ mount(function (Memo $memo) {
     $this->memo = $memo;
 });
 
+$delete = function () {
+    $this->memo->delete();
+    $this->redirect(route('memos.index'), navigate: true);
+};
+
 ?>
 
 <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
@@ -31,6 +36,10 @@ mount(function (Memo $memo) {
             <x-secondary-button wire:navigate href="{{ route('memos.index') }}">
                 戻る
             </x-secondary-button>
+
+            <x-danger-button wire:click="delete" wire:confirm="本当にこのメモを削除しますか？">
+                削除
+            </x-danger-button>
         </div>
     </div>
 </div>

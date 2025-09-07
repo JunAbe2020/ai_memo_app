@@ -12,7 +12,7 @@ $memos = computed(function () {
 <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-semibold text-gray-900">メモ一覧</h1>
-        <x-primary-button onclick="window.location.href='{{ route('memos.create') }}'">
+        <x-primary-button wire:navigate href="{{ route('memos.create') }}">
             新規作成
         </x-primary-button>
     </div>
@@ -20,7 +20,7 @@ $memos = computed(function () {
     <div class="space-y-4">
         @foreach ($this->memos as $memo)
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg hover:bg-gray-50 transition cursor-pointer"
-                onclick="window.location.href='{{ route('memos.show', $memo) }}'">
+                wire:navigate href="{{ route('memos.show', $memo) }}">
                 <div class="p-6">
                     <div class="flex justify-between items-center">
                         <h2 class="text-lg font-medium text-gray-900">
@@ -37,7 +37,7 @@ $memos = computed(function () {
         @if ($this->memos->isEmpty())
             <div class="text-center py-10">
                 <p class="text-gray-500">メモがありません</p>
-                <x-primary-button onclick="window.location.href='{{ route('memos.create') }}'" class="mt-4">
+                <x-primary-button wire:navigate href="{{ route('memos.create') }}" class="mt-4">
                     最初のメモを作成
                 </x-primary-button>
             </div>
