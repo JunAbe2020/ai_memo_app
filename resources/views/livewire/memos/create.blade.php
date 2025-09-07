@@ -9,8 +9,8 @@ state([
 ]);
 
 rules([
-    'title' => 'required|max:255',
-    'body' => 'required',
+    'title' => 'required|max:50',
+    'body' => 'required|max:2000',
 ]);
 
 $save = function () {
